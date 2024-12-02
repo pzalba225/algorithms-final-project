@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fad390);
+            color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            background: -webkit-linear-gradient(45deg, #8e44ad, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .options-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .option-card {
+            flex: 1;
+            max-width: 240px;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .option-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .option-card p {
+            font-size: 0.9rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #8e44ad, #3498db);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #3498db, #8e44ad);
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-info {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            color: #ffffff;
+        }
+
+        .btn-info:hover {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-dark {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+
+        .btn-dark:hover {
+            background: #2c3e50;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Main Menu</h1>
+        <p class="subheading">Select a category and make your day delicious!</p>
+
+        <div class="options-row">
+            <a href="{{ url_for('products_view', category='breakfast') }}" class="option-card">
+                <h3>Breakfast</h3>
+                <p>Start your day with something hearty and delicious.</p>
+            </a>
+            <a href="{{ url_for('products_view', category='lunch') }}" class="option-card">
+                <h3>Lunch</h3>
+                <p>Fuel up with mouthwatering lunch options.</p>
+            </a>
+            <a href="{{ url_for('products_view', category='coffee') }}" class="option-card">
+                <h3>Coffee</h3>
+                <p>Recharge with our refreshing coffee blends.</p>
+            </a>
+            <a href="{{ url_for('products_view', category='snacks') }}" class="option-card">
+                <h3>Snacks</h3>
+                <p>Quick bites to keep you going all day long.</p>
+            </a>
+        </div>
+
+        <div class="btn-group">
+            <a href="{{ url_for('cart') }}" class="btn btn-primary">View Cart</a>
+            <a href="{{ url_for('past_orders') }}" class="btn btn-info">Past Orders</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-dark">Log Out</a>
+        </div>
+
+        <div class="footer">
+            <p>Need help? <a href="#">Contact Support</a> | <a href="#">Terms & Conditions</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

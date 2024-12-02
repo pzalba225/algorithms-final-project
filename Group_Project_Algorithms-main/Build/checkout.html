@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f7fb;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between; /* Align name and price to opposite ends */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item span {
+    font-weight: bold;
+    flex: 1; /* Allow name and price to take up flexible space */
+}
+
+.cart-item span:first-child {
+    text-align: left; /* Align product name to the left */
+}
+
+.cart-item span:last-child {
+    text-align: right; /* Align price to the right */
+}
+
+        .cart-actions button {
+            background-color: #FF7043;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .cart-actions button:hover {
+            background-color: #FF5722;
+        }
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+            color: #333;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #388E3C;
+        }
+        .form-section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <!-- Cart Display -->
+        <div class="cart-section">
+            <h4>Your Cart:</h4>
+            {% if cart %}
+                {% for item, price in cart.items() %}
+                    <div class="cart-item">
+                        <span>{{ item }}</span>
+                        <span>${{ price }}</span>
+                        <div class="cart-actions">
+                            <form method="POST">
+                                <input type="hidden" name="remove_item" value="{{ item }}">
+                                <button type="submit">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </div>
+
+        <!-- Total Price -->
+        <div class="total-price">
+            Total: ${{ total }}
+        </div>
+
+        <!-- Form for Payment and Pickup -->
+        <div class="form-section">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="pickup_time" class="form-label">Pickup Time:</label>
+                    <input type="time" id="pickup_time" name="pickup_time" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="payment_method" class="form-label">Payment Method:</label>
+                    <select id="payment_method" name="payment_method" class="form-select" required>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Cash">Cash</option>
+                        <option value="PayPal">PayPal</option>
+                    </select>
+                </div>
+                <button type="submit" name="checkout" class="btn">Place Order</button>
+            </form>
+        </div>
+
+        <!-- Back to Main Menu Button -->
+        <a href="/main_menu" class="btn btn-secondary">Back to Main Menu</a>
+    </div>
+
+</body>
+</html>
+
+
+
+
