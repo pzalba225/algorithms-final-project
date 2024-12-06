@@ -257,11 +257,8 @@ a.3. The order will be placed, and the cart will be cleared after checkout.
 7. **Worker Dashboard**
 1. If you log in as a worker, you can access the admin dashboard where you can see the orders placed by buyers.
 
-   **Necesitamos que alguien con usuario le haga captura a esto.**
-
 2. You can choose to either view the orders or exit the dashboard.
 
-   **Necesitamos que alguien con usuario le haga captura a esto.**
 
    **Notes:**
 
